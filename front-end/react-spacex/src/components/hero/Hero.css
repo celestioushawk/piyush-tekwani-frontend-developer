@@ -102,29 +102,34 @@
 	}
 
 	.hero .hero-text .cta-button button {
-		padding: 1.5rem 3rem;
-		font-size: 1.5rem;
+		padding: 1rem 2.5rem;
+		font-size: 1.2rem;
 	}
 }
 
 @media only screen and (min-width: 1400px) {
 	.hero {
-		height: 80vh;
+		height: 85vh;
 		padding: 6rem;
 	}
 	
 	.hero .hero-text {
-		gap: 2rem;
+		gap: 1rem;
 		max-width: 800px;
 	}
 	
 	.hero .hero-text h1 {
 		font-weight: 900;
-		font-size: 3.5rem;
+		font-size: 3.1rem;
 	}
 	
 	.hero .hero-text p {
 		font-weight: 200;
-		font-size: 1.5rem;
+		font-size: 1.2rem;
+	}
+
+	.hero .hero-text .cta-button button {
+		padding: 1rem 2.5rem;
+		font-size: 1.2rem;
 	}
 }
