@@ -1,12 +1,12 @@
 import './App.css'
 import Hero from './components/hero/Hero'
+import RocketList from './components/rocket-list/RocketList'
 
 function App() {
 	return (
 	<>
-		<div className="container">
-			<Hero />
-		</div>
+		<Hero />
+		<RocketList />
 	</>
 	)
 }
