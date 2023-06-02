@@ -1,5 +1,6 @@
 import RocketTestImage from '../../assets/test.jpg'
 import './RocketCard.css';
+
 const RocketCard = () => {
 	return(
 		<>

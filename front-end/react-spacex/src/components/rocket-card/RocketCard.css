@@ -73,6 +73,11 @@
 	text-transform: uppercase;
 }
 
+.rocket-card-wrapper .view-more-button button:hover {
+	opacity: 80%;
+	cursor: pointer;
+}
+
 @media only screen and (min-width: 650px) and (max-width: 900px) {
 	.rocket-card-wrapper {
 		display: grid;
