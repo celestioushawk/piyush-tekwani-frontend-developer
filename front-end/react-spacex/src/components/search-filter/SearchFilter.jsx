@@ -1,5 +1,11 @@
 import './SearchFilter.css';
-
+/**
+ * Component to render the search filters to filter rocket according to their active state,
+ * engine number, and booster number.
+ * @param {prop} updateActiveFilter Prop to update the value of the activeFilter state.
+ * @param {prop} updateBoosterFilter Prop to update the value of the boosterFilter state.
+ * @param {prop} updateEngineFilter Prop to update the value of the engineFilter state.
+ */
 const SearchFilter = ({
 	updateActiveFilter,
 	updateBoosterFilter,

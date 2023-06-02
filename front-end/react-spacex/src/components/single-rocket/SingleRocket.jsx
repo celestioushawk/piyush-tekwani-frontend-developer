@@ -1,6 +1,11 @@
 import RocketTestImage from '../../assets/test.jpg';
 import './SingleRocket.css';
-
+/**
+ * Component to render the single rocket modal when clicked on a rocket card in data grid.
+ * @param {prop} showRocketModal Prop to update value of showRocketModal state.
+ * @param {prop} singleRocketData Prop containing data of the single rocket.
+ * @returns 
+ */
 const SingleRocket = ({ showRocketModal, singleRocketData }) => {
 	return (
 		<>

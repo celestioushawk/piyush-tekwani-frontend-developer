@@ -1,7 +1,9 @@
 import Background from '../../assets/banner_cover_image.jpg';
 import Logo from '../../assets/spacex-logo-white.png';
 import './Hero.css';
-
+/**
+ * Hero component to display the banner of the webpage including site logo and tagline.
+ */
 const Hero = () => {
 	return (
 		<>

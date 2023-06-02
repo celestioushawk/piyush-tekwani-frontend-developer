@@ -10,7 +10,13 @@ app.use(cors());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 dotenv.config();
-
+/**
+ * Function for performing basic authentication of all calls to the API. 
+ * @param {Object} req 
+ * @param {Object} res 
+ * @param {Object} next 
+ * @returns 
+ */
 const basicAuth = (req, res, next) => {
 	const authheader = req.headers.authorization;
 	/* eslint-disable */
@@ -22,14 +28,14 @@ const basicAuth = (req, res, next) => {
 		next();
 	}
 	else {
-		return res.send(credentials[1]);
+		return res.send("User not authorized");
 	}
 }
 
 app.use(basicAuth);
-
+// Base URL for making calls to the SpaceX API.
 const baseURL = "https://api.spacexdata.com/v4/rockets";
-
+// GET route for getting information on all rockets.
 app.get("/rockets", async (req, res) => {
 	try {
 		const response = await fetch(baseURL);
@@ -39,7 +45,7 @@ app.get("/rockets", async (req, res) => {
 		console.log(err);
 	}
 });
-  
+// GET route for getting information on a single rocket using :id parameter.  
 app.get("/rockets/:id", async (req, res) => {
 	const url = baseURL + "/" + req.params.id;
 	try {
@@ -50,7 +56,7 @@ app.get("/rockets/:id", async (req, res) => {
 		console.log(err);
 	}
 });
-
+// POST route for fetching rocket information based on query.
 app.post("/rockets/query", async (req, res) => {
 	const url = "https://api.spacexdata.com/v4/rockets/query";
 	try {

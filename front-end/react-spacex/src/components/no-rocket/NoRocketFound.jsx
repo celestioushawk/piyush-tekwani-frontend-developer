@@ -1,5 +1,8 @@
 import FallbackRocketImage from '../../assets/rocket.png';
 import './NoRocketFound.css';
+/**
+ * Component to be displayed as a fallback in case no rocket is found as result of the query.
+ */
 const NoRocketFound = () => {
 	return (
 		<>

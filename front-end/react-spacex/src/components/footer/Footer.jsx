@@ -1,6 +1,8 @@
 import Logo from '../../assets/spacex-logo-white.png';
 import './Footer.css';
-
+/**
+ * Footer component to display footer imformation at the bottom of the page.
+ */
 const Footer = () => {
     return(
         <>

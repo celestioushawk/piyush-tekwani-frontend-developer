@@ -2,7 +2,10 @@ import { useState } from 'react';
 import RocketTestImage from '../../assets/test.jpg';
 import './RocketCard.css';
 import SingleRocket from '../single-rocket/SingleRocket';
-
+/**
+ * RocketCard component to show summary information about a rocket in a card inside the data grid of rockets. 
+ * @param {props} rocketData Prop containing data of a single rocket. 
+ */
 const RocketCard = ({ rocketData }) => {
 	const [showRocketModal, setShowRocketModal] = useState(false);
 

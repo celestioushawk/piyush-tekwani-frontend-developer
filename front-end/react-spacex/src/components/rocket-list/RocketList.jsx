@@ -4,20 +4,22 @@ import RocketCard from '../rocket-card/RocketCard';
 import './RocketList.css';
 import SearchFilter from '../search-filter/SearchFilter';
 import NoRocketFound from '../no-rocket/NoRocketFound';
-
+/**
+ * RocketList component to show the data grid of all the rockets fetched from the SpaceX API.
+ */
 const RocketList = () => {
 	const baseURL = 'http://localhost:3000/';
-
+	// State to store the data of rockets recieved from the API.
 	const [rocketData, setRocketData] = useState([]);
-
+	// State to store value of the active status filter of the rocket.
 	const [activeFilter, setActiveFilter] = useState('');
-
+	// State to store the value of the number of boosters of the rocket.
 	const [boosterFilter, setBoosterFilter] = useState('');
-
+	// State to store the value of the number of engines of the rocket.
 	const [engineFilter, setEngineFilter] = useState('');
-
+	// State to store if no rocket was found and display the fallback message.
 	const [noRocketFoundFlag, setNoRocketFoundFlag] = useState(false);
-
+	// API call to fetch data of all rockets.
 	useEffect(() => {
 		axios
 			.get(baseURL + 'rockets', {
@@ -28,7 +30,7 @@ const RocketList = () => {
 			})
 			.then((response) => setRocketData(response.data));
 	}, []);
-
+	// API call to query according to filters.
 	useEffect(() => {
 		const queryObject = [];
 		if (engineFilter) {
