@@ -9,7 +9,7 @@
 	justify-content: center;
 	align-items: center;
 	scroll-behavior: unset;
-	display: none;
+	transition: visibility 0s, opacity 0.5s;
 }
 
 .single-rocket-wrapper {
