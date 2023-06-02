@@ -1,5 +1,5 @@
 .rocket-list {
-	padding: 3rem;
+	padding: 3rem 2rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -7,6 +7,15 @@
 	width: 100%;
 	max-width: 1440px;
 	margin: auto;
+}
+
+.rocket-list .rocket-list-header {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
 }
 
 .rocket-list .rockets {
@@ -19,6 +28,13 @@
 .rocket-list h2 {
 	font-weight: 900;
 	font-size: 2.5rem;
+}
+
+@media only screen and (min-width: 768px) {
+	.rocket-list .rocket-list-header {
+		flex-direction: row;
+		justify-content: space-between;
+	}
 }
 
 @media only screen and (min-width: 1024px) {
@@ -34,8 +50,8 @@
 	}
 
 	.rocket-list .rockets {
-		justify-content: space-between;
-		flex-wrap: nowrap;
+		justify-content: flex-start;
+		flex-wrap: wrap;
 	}
 
 	.rocket-list h2 {
