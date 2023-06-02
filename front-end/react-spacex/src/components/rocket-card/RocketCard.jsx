@@ -1,43 +1,68 @@
+import { useState } from 'react';
 import RocketTestImage from '../../assets/test.jpg'
 import './RocketCard.css';
+import SingleRocket from '../single-rocket/SingleRocket';
 
-const RocketCard = () => {
+
+const RocketCard = ({ rocketData }) => {
+	
+	const [showRocketModal, setShowRocketModal] = useState(false);
+	
 	return(
 		<>
 			<div className="rocket-card-wrapper">
 				<div className="rocket-image">
-					<img src={RocketTestImage} alt="Representational Image of Rocket" />
+					<img src={rocketData?.flickr_images[1]} onError={(e) => e.target.src=RocketTestImage} alt="Representational Image of Rocket" />
 				</div>
 				<div className="rocket-stats-wrapper">
 					<div className="rocket-name">
-						<h3>Falcon Heavy</h3>
+						<h3>
+							{rocketData.name}
+						</h3>
 					</div>
 					<div className="rocket-stats">
 						<div className="rocket-engine rocket-stat">
-							<span className="stat-heading">Engines</span>
-							<span className="stat-value">9</span>
+							<span className="stat-heading">
+								Engines
+							</span>
+							<span className="stat-value">
+								{rocketData.engines.number}
+							</span>
 						</div>
 						<div className="separator"></div>
 						<div className="rocket-stages rocket-stat">
-							<span className="stat-heading">Stages</span>
-							<span className="stat-value">3</span>
+							<span className="stat-heading">
+								Stages
+							</span>
+							<span className="stat-value">
+								{rocketData.stages}
+							</span>
 						</div>
 						<div className="separator"></div>
 						<div className="rocket-boosters rocket-stat">
-							<span className="stat-heading">Boosters</span>
-							<span className="stat-value">2</span>
+							<span className="stat-heading">
+								Boosters
+							</span>
+							<span className="stat-value">
+								{rocketData.boosters}
+							</span>
 						</div>
 					</div>
 					<div className="rocket-description">
 						<p>
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius, laborum corrupti? Amet aperiam ad labore, ipsam quibusdam adipisci aut repudiandae!
+							{
+								rocketData.description.substring(0, 150)+'...'
+							}
 						</p>
 					</div>
 					<div className="view-more-button">
-						<button>View Rocket</button>
+						<button onClick={() => setShowRocketModal(true)}>
+							View Rocket
+						</button>
 					</div>
 				</div>
 			</div>
+			{showRocketModal && <SingleRocket showRocketModal={setShowRocketModal} singleRocketData={rocketData}/>}
 		</>
 	)
 }
