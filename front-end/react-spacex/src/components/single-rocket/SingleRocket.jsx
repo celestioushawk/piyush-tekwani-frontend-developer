@@ -1,16 +1,23 @@
-import RocketTestImage from '../../assets/test.jpg'
+import RocketTestImage from '../../assets/test.jpg';
 import './SingleRocket.css';
 
 const SingleRocket = ({ showRocketModal, singleRocketData }) => {
-	return(
+	return (
 		<>
 			<section className="single-rocket-wrapper-bg">
 				<div className="single-rocket-wrapper">
 					<div className="single-rocket-close">
-						<i className="fa-solid fa-xmark" onClick={() => showRocketModal(false)}></i>
+						<i
+							className="fa-solid fa-xmark"
+							onClick={() => showRocketModal(false)}
+						></i>
 					</div>
 					<div className="single-rocket-images">
-						<img src={singleRocketData.flickr_images[1]} onError={(e) => e.target.src=RocketTestImage} alt="Representational Image of Rocket" />
+						<img
+							src={singleRocketData.flickr_images[1]}
+							onError={(e) => (e.target.src = RocketTestImage)}
+							alt="Representational Image of Rocket"
+						/>
 					</div>
 					<div className="single-rocket-stats">
 						<div className="single-rocket-name">
@@ -18,9 +25,7 @@ const SingleRocket = ({ showRocketModal, singleRocketData }) => {
 						</div>
 						<div className="single-rocket-summary">
 							<div className="rocket-engine rocket-stat">
-								<span className="stat-heading">
-									Engines
-								</span>
+								<span className="stat-heading">Engines</span>
 								<span className="stat-value">
 									{singleRocketData.engines.number}
 								</span>
@@ -41,45 +46,50 @@ const SingleRocket = ({ showRocketModal, singleRocketData }) => {
 							</div>
 						</div>
 						<div className="single-rocket-description">
-							<p>
-								{singleRocketData.description}
-							</p>
+							<p>{singleRocketData.description}</p>
 						</div>
 						<div className="single-rocket-specs">
 							<div className="single-rocket-height rocket-spec">
 								<i className="fa-solid fa-ruler-vertical"></i>
 								<span>
-									Height: {singleRocketData.height.meters} meters
+									Height: {singleRocketData.height.meters}{' '}
+									meters
 								</span>
 							</div>
 							<div className="single-rocket-height rocket-spec">
 								<i className="fa-solid fa-dollar-sign"></i>
 								<span>
-									Cost: {singleRocketData.cost_per_launch.toLocaleString()}
+									Cost:{' '}
+									{singleRocketData.cost_per_launch.toLocaleString()}
 								</span>
 							</div>
 							<div className="single-rocket-diameter rocket-spec">
 								<i className="fa-solid fa-ruler-horizontal"></i>
 								<span>
-									Diameter: {singleRocketData.diameter.meters} meters
+									Diameter: {singleRocketData.diameter.meters}{' '}
+									meters
 								</span>
 							</div>
 							<div className="single-rocket-mass rocket-spec">
 								<i className="fa-solid fa-weight-hanging"></i>
 								<span>
-									Mass: {singleRocketData.mass.kg.toLocaleString()} kg
+									Mass:{' '}
+									{singleRocketData.mass.kg.toLocaleString()}{' '}
+									kg
 								</span>
 							</div>
 							<div className="single-rocket-legs rocket-spec">
 								<i className="fa-solid fa-rocket"></i>
 								<span>
-									Landing Legs: {singleRocketData.landing_legs.number}
+									Landing Legs:{' '}
+									{singleRocketData.landing_legs.number}
 								</span>
 							</div>
 							<div className="single-rocket-success-rate rocket-spec">
 								<i className="fa-regular fa-circle-check"></i>
 								<span>
-									Success Rate: {singleRocketData.success_rate_pct}%
+									Success Rate:{' '}
+									{singleRocketData.success_rate_pct}%
 								</span>
 							</div>
 						</div>
@@ -87,7 +97,7 @@ const SingleRocket = ({ showRocketModal, singleRocketData }) => {
 				</div>
 			</section>
 		</>
-	)
-}
+	);
+};
 
 export default SingleRocket;

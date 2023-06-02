@@ -10,11 +10,11 @@ const RocketList = () => {
 
 	const [rocketData, setRocketData] = useState([]);
 
-	const [activeFilter, setActiveFilter] = useState("");
+	const [activeFilter, setActiveFilter] = useState('');
 
-	const [boosterFilter, setBoosterFilter] = useState("");
+	const [boosterFilter, setBoosterFilter] = useState('');
 
-	const [engineFilter, setEngineFilter] = useState("");
+	const [engineFilter, setEngineFilter] = useState('');
 
 	const [noRocketFoundFlag, setNoRocketFoundFlag] = useState(false);
 
@@ -23,42 +23,46 @@ const RocketList = () => {
 			.get(baseURL + 'rockets', {
 				auth: {
 					username: import.meta.env.VITE_USERNAME,
-					password: import.meta.env.VITE_PASSWORD
-				}
+					password: import.meta.env.VITE_PASSWORD,
+				},
 			})
 			.then((response) => setRocketData(response.data));
-		console.log("render")
 	}, []);
 
 	useEffect(() => {
-		let queryObject = [];
-		if(engineFilter) {
-			queryObject.push({"engines.number": {"$gt": `${engineFilter}`}});
+		const queryObject = [];
+		if (engineFilter) {
+			queryObject.push({ 'engines.number': { $gt: `${engineFilter}` } });
 		}
-		if(activeFilter) {
-			queryObject.push({"active": `${activeFilter}`});
+		if (activeFilter) {
+			queryObject.push({ active: `${activeFilter}` });
 		}
-		if(boosterFilter) {
-			queryObject.push({"boosters": {"$gte": `${boosterFilter}`}});
+		if (boosterFilter) {
+			queryObject.push({ boosters: { $gte: `${boosterFilter}` } });
 		}
-		axios.post(baseURL + "rockets/query", {
-			"query": {
-				"$and": queryObject
-			},
-			"options": {}
-		}, {
-			auth: {
-				username: import.meta.env.VITE_USERNAME,
-				password: import.meta.env.VITE_PASSWORD
-			}
-		}).then((response) => {
-			if(response.data.totalDocs === 0) {
-				setNoRocketFoundFlag(true);
-			}
-			setRocketData(response.data.docs);
-		})
-
-	}, [activeFilter, boosterFilter, engineFilter])
+		axios
+			.post(
+				baseURL + 'rockets/query',
+				{
+					query: {
+						$and: queryObject,
+					},
+					options: {},
+				},
+				{
+					auth: {
+						username: import.meta.env.VITE_USERNAME,
+						password: import.meta.env.VITE_PASSWORD,
+					},
+				}
+			)
+			.then((response) => {
+				if (response.data.totalDocs === 0) {
+					setNoRocketFoundFlag(true);
+				}
+				setRocketData(response.data.docs);
+			});
+	}, [activeFilter, boosterFilter, engineFilter]);
 
 	return (
 		<>
@@ -66,21 +70,26 @@ const RocketList = () => {
 				<section className="rocket-list" id="rocket-list">
 					<div className="rocket-list-header">
 						<h2>Our Rockets</h2>
-						<SearchFilter updateActiveFilter={setActiveFilter} updateBoosterFilter={setBoosterFilter} updateEngineFilter={setEngineFilter} />
+						<SearchFilter
+							updateActiveFilter={setActiveFilter}
+							updateBoosterFilter={setBoosterFilter}
+							updateEngineFilter={setEngineFilter}
+						/>
 					</div>
-					{
-						!noRocketFoundFlag ? (
-							<div className="rockets">
-								{
-									rocketData?.map((singleRocketData) => {
-										return <RocketCard key={singleRocketData.id} rocketData={singleRocketData} />
-									})
-								}
-							</div>
-						) : (
-							<NoRocketFound />
-						)
-					}
+					{!noRocketFoundFlag ? (
+						<div className="rockets">
+							{rocketData?.map((singleRocketData) => {
+								return (
+									<RocketCard
+										key={singleRocketData.id}
+										rocketData={singleRocketData}
+									/>
+								);
+							})}
+						</div>
+					) : (
+						<NoRocketFound />
+					)}
 				</section>
 			) : (
 				'Loading...'

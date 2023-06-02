@@ -13,6 +13,7 @@ dotenv.config();
 
 const basicAuth = (req, res, next) => {
 	const authheader = req.headers.authorization;
+	/* eslint-disable */
 	const credentials = new Buffer.from(authheader.split(' ')[1],'base64').toString().split(':');
 	const usernameRecieved = credentials[0];
 	const passwordRecieved = credentials[1];
