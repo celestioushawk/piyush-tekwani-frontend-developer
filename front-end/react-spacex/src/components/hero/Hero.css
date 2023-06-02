@@ -44,6 +44,12 @@
 	background: none;
 	border: 2px solid #fff;
 	color: #fff;
+	text-transform: uppercase;
+}
+
+.hero .hero-text .cta-button button:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+	cursor: pointer;
 }
 
 @media only screen and (min-width: 650px) {
