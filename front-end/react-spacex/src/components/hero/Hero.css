@@ -1,0 +1,141 @@
+.hero {
+	height: 100vh;
+	max-width: 100%;
+	background-position: 75% 0% !important;
+	display: flex;
+	background-size: cover !important;
+	flex-direction: column;
+	padding: 2rem 1rem;
+}
+
+.hero .header {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.hero .header img {
+	height: 100%;
+	width: 50%;
+}
+
+.hero .hero-text {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	margin-top: 20%;
+	color: #fff;
+	gap: 1rem;
+}
+
+.hero .hero-text h1 {
+	font-weight: 800;
+	font-size: 2rem;
+}
+
+.hero .hero-text p {
+	font-weight: 200;
+	font-size: 1rem;
+}
+
+.hero .hero-text .cta-button button {
+	padding: 1rem 2rem;
+	background: none;
+	border: 2px solid #fff;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.hero .hero-text .cta-button button:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+	cursor: pointer;
+}
+
+@media only screen and (min-width: 650px) {
+	.hero {
+		padding: 2rem 4rem;
+	}
+	
+	.hero .hero-text h1 {
+		font-size: 2.5rem;
+	}
+
+	.hero .header img {
+		width: 40%;
+	}
+	
+	.hero .hero-text p {
+		letter-spacing: 0.5px;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.hero {
+		height: 75vh;
+		max-width: 100%;
+		background-position: 0% 100% !important;
+		padding: 4rem;
+		justify-content: center;
+	}
+	
+	.hero .header {
+		justify-content: flex-start;
+	}
+	
+	.hero .header img {
+		height: 100%;
+		width: 20%;
+	}
+	
+	.hero .hero-text {
+		justify-content: flex-end;
+		align-items: flex-start;
+		text-align: left;
+		margin-top: 0;
+		gap: 1.5rem;
+		max-width: 600px;
+	}
+	
+	.hero .hero-text h1 {
+		font-weight: 900;
+		font-size: 3rem;
+	}
+	
+	.hero .hero-text p {
+		font-weight: 200;
+		font-size: 1rem;
+	}
+
+	.hero .hero-text .cta-button button {
+		padding: 1rem 2.5rem;
+		font-size: 1.2rem;
+	}
+}
+
+@media only screen and (min-width: 1400px) {
+	.hero {
+		height: 85vh;
+		padding: 6rem;
+	}
+	
+	.hero .hero-text {
+		gap: 1rem;
+		max-width: 800px;
+	}
+	
+	.hero .hero-text h1 {
+		font-weight: 900;
+		font-size: 3.1rem;
+	}
+	
+	.hero .hero-text p {
+		font-weight: 200;
+		font-size: 1.2rem;
+	}
+
+	.hero .hero-text .cta-button button {
+		padding: 1rem 2.5rem;
+		font-size: 1.2rem;
+	}
+}

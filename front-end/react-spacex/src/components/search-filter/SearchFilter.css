@@ -1,0 +1,28 @@
+.search-filters {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.search-filters select {
+    padding: 0.5rem;
+    border-radius: 1rem;
+    background: none;
+    border: 2px solid #000;
+    font-weight: 800;
+}
+
+@media only screen and (min-width: 768px) {
+	.search-filters {
+		width: fit-content;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+    .search-filters select {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border-radius: 1.2rem;
+    }
+}
